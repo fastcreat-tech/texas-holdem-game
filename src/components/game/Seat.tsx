@@ -30,7 +30,7 @@ export function Seat({
   const eliminated = !inGame
   const cards: DisplayCard[] = state.hole.map((c, i) => ({
     card: c,
-    faceUp: isPlayer || (revealed && !state.folded),
+    faceUp: isPlayer || revealed,
     key: `${seat}-${i}-${c.rank}-${c.suit}`,
   }))
 

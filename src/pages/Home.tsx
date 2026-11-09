@@ -161,7 +161,9 @@ export default function Home() {
                   isButton={hand ? hand.button === i : g.button === i}
                   isActing={!!hand && g.phase === 'playing' && hand.acting === i && !hand.handOver}
                   actionTag={g.actionTags[i]}
-                  revealed={g.showdownReveal}
+                  revealed={
+                    g.showdownReveal || g.phase === 'handOver' || seatState.folded
+                  }
                   handName={hand?.showdownNames?.[i] ?? null}
                   isWinner={g.showdownReveal && winners.has(i)}
                   isPlayer={i === PLAYER}
